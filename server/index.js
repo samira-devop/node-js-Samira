@@ -1,6 +1,6 @@
 const cors = require('cors')
 const express = require('express')
-const { body, check, param, validationResult } = require('express-validator')
+const { body, check, param, validationResult, Result } = require('express-validator')
 const pool=require('./PromisePool').promisePool
 
 const PORT = 80
@@ -23,8 +23,8 @@ app.get('/car/:id', cors(corsOptions), async(req, res)=>{
     let car_id = req.params['id']
     const [result] = await pool.query('Select * FROM car where car_id= ?', [car_id])
     //Read request body. 
-    const body = result [0]
-    res.send(body)
+    // const body = result [0]
+    res.send(result)
     }) 
 
 app.listen(PORT, () => {
