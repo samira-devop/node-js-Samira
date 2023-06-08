@@ -3,7 +3,7 @@ const express = require('express')
 const mySqlProxy = require('./MySqlProxy')
 const { body, check, param, validationResult } = require('express-validator')
 
-const PORT = 80
+const PORT = 8080
 const app = express()
 const corsOptions = { origin: ['http://localhost:3000'], optionsSuccessStatus: 200 }
 
