@@ -22,11 +22,11 @@ app.get('/person/:id', cors(corsOptions), async (req, res) => {
     // const personType = req.query['personType']   // Read query parameters from URL.
     // const body = req.body                        // Read request body.
     // res.send(<YOUR OBJECT HERE>)
-    res.send({message: 'Hey World'})
+    res.send({message: 'Hello World!'})
 })
 
 app.get('/message', cors(corsOptions), async(req, res) => {
-    res.send({message: 'Hi my name is Nico Portalatin!!!'})
+    res.send({message: 'Hi my name is Samira!'})
 })
 
 app.get('/persons/', cors(corsOptions), async (req,res) => {
@@ -59,11 +59,17 @@ app.get('/cars', cors(corsOptions), async (req,res) => {
 //Car post (adding)
 app.post('/cars/', cors(corsOptions), async (req, res) => { 
   const car = req.body 
-  console.log(car)
   const newCar = await mySqlProxy.insertCar(car)
   res.send(newCar)
 })
 
+//Car Put
+
+app.put('/cars', cors(corsOptions), async (req, res) => { 
+  const car = req.body 
+  const newCar = await mySqlProxy.updateCar(car)
+  res.send(newCar);
+})
 
 
 
